@@ -1,4 +1,4 @@
-# root-and-reason
+# Root & Reason
 
 ## Team
 

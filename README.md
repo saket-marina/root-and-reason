@@ -8,6 +8,7 @@ Our mission is to help people care for themselves at home using remedies rooted 
 - Akeara Serrano — Product Designer
 - Saket Marina — Developer
 - Tiange Zhao — Developer
+- Ash Siwakoti - Developer
 
 ## Team Performance Matrix
 Skills and competencies the class uses to measure performance.

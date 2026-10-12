@@ -4,10 +4,10 @@
 Our mission is to help people care for themselves at home using remedies rooted in their culture, pairing traditional practices with science-based information, clear safety guidance, and respect for privacy.
 
 ## Team
-- Ahshah Olivia Kennedy — Project Manager
-- Akeara Serrano — Product Designer
-- Saket Marina — Developer
-- Tiange Zhao — Developer
+- Ahshah Olivia Kennedy - Project Manager
+- Akeara Serrano - Product Designer
+- Saket Marina - Developer
+- Tiange Zhao - Developer
 - Ash Siwakoti - Developer
 
 ## Team Performance Matrix

@@ -23,3 +23,5 @@ Skills and competencies the class uses to measure performance.
 - [Competitive Analysis](Competitive%20Analysis%20Template%20-%20Team%20E.pdf)
 
 - Link to notion workspace: https://app.notion.com/p/Root-n-Remedy-3f7cfaf13eac802a87eedb28d471e061?source=copy_link
+- [Design and Specifications](https://app.notion.com/p/Design-and-Specifications-3fecfaf13eac809e8152fd4b365d0f63)
+- [Design Notes](https://app.notion.com/p/Design-Specification-Assignment-3f8cfaf13eac80ad85d2f90c50ce1211)

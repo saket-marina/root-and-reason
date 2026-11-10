@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "reviewDate": "2026-11-07",
+  "scope": "Source-checked application overlay; canonical research package preserved. This is not clinical approval.",
+  "studies": {
+    "sengupta-boswellia-2008": {
+      "analyzed": 70,
+      "reviewDate": "2026-11-04",
+      "sourceId": "boswellia-sengupta-2008",
+      "fullTextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2575633/",
+      "locator": "Results, Clinical efficacy, Table 4: symptom-score rows have placebo n=23, low-dose n=24, high-dose n=23; abstract Results states 70 completed.",
+      "denominator": "Whole-study 90-day clinical symptom analysis (23 + 24 + 23). Biomarker subset denominators differ.",
+      "replacedLimitation": "Small trial; 70 completed, but analysis denominator not independently extracted.",
+      "analysisLimitations": ["Small trial; symptom-analysis and biomarker denominators differ."],
+      "claimId": "boswellia-clinical-analyzed-2026-11",
+      "claimText": "The trial's 90-day clinical symptom table includes 70 participants across its three groups; biomarker analyses used smaller subsets."
+    },
+    "chuchalin-pelargonium-2005": {
+      "analyzed": 124,
+      "sourceId": "pelargonium-chuchalin-2005",
+      "fullTextUrl": "https://www.academia.edu/27769268/Treatment_of_Acute_Bronchitis_in_Adults_With_a_Pelargonium_Sidoides_Preparation_EPs_7630_A_Randomized_Double_Blind_Placebo_Controlled_Trial",
+      "locator": "Original article, Statistical Analysis, Results on participant flow, and Figure 2 (pp. 439–440).",
+      "denominator": "Primary symptom-score intention-to-treat analysis across both groups (64 + 60). The study carried forward the last observed score for early withdrawals.",
+      "replacedLimitation": "Short follow-up; full-text analysis details and funding were not extracted.",
+      "analysisLimitations": ["Short follow-up. The analysis carried forward earlier observations for participants who withdrew."],
+      "claimId": "pelargonium-primary-analysis-2026-11",
+      "claimText": "The primary symptom-score analysis included 124 participants across both groups, using earlier observations for participants who withdrew."
+    },
+    "kasper-lavender-2014": {
+      "analyzed": 523,
+      "sourceId": "lavender-kasper-2014",
+      "fullTextUrl": "https://gwern.net/doc/psychiatry/anxiety/lavender/2014-kasper.pdf",
+      "locator": "Original article, primary outcome methods and Figure 1, Full analysis set (121 + 135 + 132 + 135).",
+      "denominator": "Full analysis set for the primary anxiety score across both Silexan groups, paroxetine, and placebo.",
+      "replacedLimitation": "Full-text allocation and analysis details were not extracted.",
+      "analysisLimitations": ["The full analysis set excludes participants without post-baseline efficacy data."],
+      "claimId": "lavender-primary-analysis-2026-11",
+      "claimText": "The primary anxiety-score analysis included 523 participants across the four study groups."
+    },
+    "morishita-2021-constipation": {
+      "analyzed": 90,
+      "randomized": 90,
+      "sourceId": "morishita-2021-senna",
+      "fullTextUrl": "https://www.hyo-med.ac.jp/files/20220225/3f040825616e531962406517ccd3e8428b30e477.pdf",
+      "locator": "Morishita's Hyogo Medical University dissertation abstract for this trial, Results (結果), first sentence; journal abstract reports 90 completed.",
+      "denominator": "Final analysis included 30 in each of the senna, magnesium oxide, and placebo groups.",
+      "replacedLimitation": "All 90 completed, but explicit analysis count is not separately reported in the abstract.",
+      "analysisLimitations": [],
+      "claimId": "senna-primary-analysis-2026-11",
+      "claimText": "The trial's final analysis included 90 participants across its three study groups."
+    },
+    "rahnama-ginger-2012": {
+      "analyzed": 105,
+      "randomized": 118,
+      "sourceId": "ginger-rahnama-2012",
+      "fullTextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3518208/",
+      "locator": "Original article, Figure 2, Results and Table 1. The flowchart shows 120 assessed, 118 randomized, and 59 + 46 analyzed.",
+      "denominator": "Final analysis includes 59 in the ginger group and 46 in the placebo group. The body and flowchart agree; the abstract reports a different ginger group size.",
+      "replacedLimitation": "Analysis denominator not unambiguously extracted.",
+      "analysisLimitations": ["Thirteen placebo-group participants did not complete evaluation; the reported count follows the full-text flowchart and Results."],
+      "claimId": "ginger-trial-population",
+      "claimText": "The trial flowchart shows 120 students assessed for eligibility, 118 randomized, and 105 included in the final analysis. Participants had moderate or severe primary dysmenorrhea."
+    },
+    "sun-2020-flax-constipation": {
+      "analyzed": 88,
+      "sourceId": "sun-2020-flaxseed",
+      "fullTextUrl": "https://apjcn.qdu.edu.cn/9_2019-0275_61_67.pdf",
+      "locator": "Original article, Results, Figure 1 and Table 2. The 4-week constipation analysis uses 60 and 28 participants.",
+      "denominator": "Four-week constipation assessment across the flaxseed and lactulose groups (60 + 28). Two of 90 randomized participants discontinued.",
+      "replacedLimitation": "Age range and analysis population not established from the abstract.",
+      "analysisLimitations": ["The 4-week constipation analysis excluded two lactulose-group participants who discontinued."],
+      "claimId": "flaxseed-primary-analysis-2026-11",
+      "claimText": "The four-week constipation assessment included 88 participants across the flaxseed and lactulose groups."
+    },
+    "tea-tree-enshaieh-2007": {
+      "analyzed": 60,
+      "sourceId": "tea-tree-acne-trial-2007",
+      "fullTextUrl": "https://ijdvl.com/content/126/2007/73/1/Images/ijdvl_2007_73_1_22_30646.pdf",
+      "locator": "Original article, Methods, Results and Table 1 (pp. 22–23), 30 per group with all participants completing follow-up.",
+      "denominator": "Lesion-count and severity analysis across the gel and placebo groups (30 + 30).",
+      "replacedLimitation": "Small trial; abstract-only extraction; no older-adult subgroup reported.",
+      "analysisLimitations": ["Small trial in people aged 15 to 25."],
+      "claimId": "tea-tree-primary-analysis-2026-11",
+      "claimText": "The trial analyzed lesion counts and severity across 60 participants in the gel and placebo groups."
+    }
+  }
+}

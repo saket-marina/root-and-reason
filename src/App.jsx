@@ -1,5 +1,9 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+
+const useCatalog = import.meta.env.VITE_DATA_MODE === 'published' ||
+  (import.meta.env.DEV && import.meta.env.MODE === 'firestore');
+const CatalogPreview = useCatalog ? lazy(() => import('./CatalogPreview.jsx')) : null;
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';
 const SAVED_REMEDIES_KEY = 'savedRemedies';
@@ -159,17 +163,17 @@ const pageInfo = {
   'Remedy Shelf': { intro: 'Your saved remedies and comparisons will appear here on this device.' },
 };
 
-function PlaceholderPage({ title }) {
+function PlaceholderPage({ title, children }) {
   return (
     <main className="page-main subpage">
       <p className="eyebrow">Root &amp; Remedy</p>
       <h1>{title}</h1>
       <p className="subpage-intro">{pageInfo[title].intro}</p>
-      <div className="coming-soon-card">
+      {children ?? <div className="coming-soon-card">
         <SproutMark className="coming-soon-mark" />
         <p>This section is being prepared. You can return to Home or explore another page.</p>
         <Link className="text-link" to="/">Go to Home <span aria-hidden="true">→</span></Link>
-      </div>
+      </div>}
     </main>
   );
 }
@@ -218,7 +222,11 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/remedies" element={<PlaceholderPage title="Remedies" />} />
+        <Route path="/remedies" element={
+          <PlaceholderPage title="Remedies">
+            {CatalogPreview ? <Suspense fallback={<p role="status">Opening the remedy catalog…</p>}><CatalogPreview /></Suspense> : null}
+          </PlaceholderPage>
+        } />
         <Route path="/compare" element={<PlaceholderPage title="Compare" />} />
         <Route path="/traditions" element={<PlaceholderPage title="Traditions" />} />
         <Route path="/shelf" element={<PlaceholderPage title="Remedy Shelf" />} />

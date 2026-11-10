@@ -1,4 +1,4 @@
-import { validateCatalog } from './catalog.js';
+import { validateCatalog } from './remedyCatalog.js';
 
 // The URL is a future integration contract; Ash's endpoint must be confirmed.
 export async function fetchRemedyCatalog(signal) {

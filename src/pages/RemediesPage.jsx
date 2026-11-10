@@ -4,20 +4,19 @@ import HealthGoalCard from '../components/HealthGoalCard.jsx';
 import RemedyCard from '../components/RemedyCard.jsx';
 import { fetchRemedyCatalog, findRemediesForGoal, searchCatalog } from '../data/remedyService.js';
 
-export default function RemediesPage({ selectedIds = [], addToCompare = null }) {
+export default function RemediesPage({ selectedIds = [], addToCompare = null, activeGoalId, onGoalChange }) {
   const [catalog, setCatalog] = useState(null);
   const [attempt, setAttempt] = useState(0);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
   const [submitted, setSubmitted] = useState('');
-  const [activeGoalId, setActiveGoalId] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
     fetchRemedyCatalog(controller.signal).then(({ catalog: data }) => {
         if (!controller.signal.aborted) {
-            setCatalog(data);
-            setError('');
+          setCatalog(data);
+          setError('');
         }
     })
     .catch(() => {
@@ -37,7 +36,7 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null }) 
 
   function handleSubmit(event) {
     event.preventDefault();
-    setActiveGoalId(null);
+    onGoalChange(null);
     setSubmitted(query.trim());
   }
 
@@ -64,13 +63,13 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null }) 
             onChange={(event) => setQuery(event.target.value)} placeholder="e.g., constipation" />
           <button className="button button-primary" type="submit">Search</button>
           {(submitted || activeGoalId) && <button className="button button-secondary" type="button"
-            onClick={() => { setQuery(''); setSubmitted(''); setActiveGoalId(null); }}>Clear</button>}
+            onClick={() => { setQuery(''); setSubmitted(''); onGoalChange(null); }}>Clear</button>}
         </div>
       </form>
 
       {chosenGoal ? (
         <section aria-labelledby="rr-selected-goal">
-          <button className="rr-back-link" type="button" onClick={() => setActiveGoalId(null)}>← All health goals</button>
+          <button className="rr-back-link" type="button" onClick={() => { onGoalChange(null); setSubmitted(''); }}>← All health goals</button>
           <h2 id="rr-selected-goal">{chosenGoal.name}</h2>
           <p>{visibleRemedies.length} linked remedy option{visibleRemedies.length === 1 ? '' : 's'}</p>
           <div className="rr-remedy-grid">{visibleRemedies.map((remedy) =>
@@ -91,7 +90,7 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null }) 
               )}
               {!!found.goals.length && <div className="rr-goal-grid">{found.goals.map((goal) =>
                 <HealthGoalCard key={goal.id} goal={goal}
-                  remedies={findRemediesForGoal(catalog, goal.id)} onSelect={setActiveGoalId} />)}</div>}
+                  remedies={findRemediesForGoal(catalog, goal.id)} onSelect={onGoalChange} />)}</div>}
               <div className="rr-remedy-grid">{visibleRemedies.map((remedy) =>
                 <RemedyCard key={remedy.id} remedy={remedy} goals={catalog.goals} {...compareProps(remedy)} />)}</div>
             </>
@@ -102,7 +101,7 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null }) 
           <h2 id="rr-goals-title">Browse by health goal</h2>
           <div className="rr-goal-grid">{sortedGoals.map((goal) =>
             <HealthGoalCard key={goal.id} goal={goal}
-              remedies={findRemediesForGoal(catalog, goal.id)} onSelect={setActiveGoalId} />)}</div>
+              remedies={findRemediesForGoal(catalog, goal.id)} onSelect={onGoalChange} />)}</div>
         </section>
       )}
       {addToCompare && <p className="rr-compare-link"><Link to="/compare">View compare tray ({selectedIds.length}/4) →</Link></p>}

@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:firestore": "vite --mode firestore --host 127.0.0.1 --port 5176 --strictPort",
+    "firestore:start": "npx --yes firebase-tools@15.34.0 emulators:start --only firestore --project demo-root-remedy-team-m2 --config firebase.local.json",
+    "firestore:seed": "node scripts/seed-firestore.mjs"
   },
   "dependencies": {
+    "firebase": "13.1.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest"

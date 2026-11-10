@@ -36,3 +36,9 @@ npm run dev
 ```
 
 The first-visit learning-only notice is saved in browser local storage after the visitor checks the acknowledgement and accepts.
+
+## Firestore sample
+
+Use Node 22.12 or newer and Java 21 or newer. Run `npm ci`, then start the local emulator with `npm run firestore:start`. In a second terminal, run `npm run firestore:seed` and `npm run dev:firestore`. Open [Remedies](http://127.0.0.1:5176/remedies) to see the three sample records.
+
+[Sample data](data/remedy-samples.json) uses one Firestore document per remedy, health goal, study, and origin. Remedies link to the other collections by ID. Studies and origins include source links. Origin records use four continent labels: Africa, Asia, Europe, and North America.

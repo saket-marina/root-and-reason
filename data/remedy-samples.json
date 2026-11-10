@@ -1,0 +1,73 @@
+{
+  "remedies": [
+    {
+      "id": "green-kiwifruit",
+      "name": "Green kiwifruit",
+      "summary": "Fresh green kiwifruit was one of the three foods or supplements in the four-week constipation study.",
+      "ingredients": ["Green kiwifruit"],
+      "healthGoalIds": ["constipation"],
+      "studyIds": ["chey-2021-constipation"],
+      "originIds": ["kiwifruit-native-range"],
+      "preparationMinutes": null,
+      "safetyScore": null
+    },
+    {
+      "id": "prunes",
+      "name": "Prunes",
+      "summary": "Prunes are dried plums. The same four-week constipation study included a prune group.",
+      "ingredients": ["Dried plums"],
+      "healthGoalIds": ["constipation"],
+      "studyIds": ["chey-2021-constipation"],
+      "originIds": ["dried-plum-traditional-use"],
+      "preparationMinutes": null,
+      "safetyScore": null
+    },
+    {
+      "id": "psyllium-husk",
+      "name": "Psyllium husk",
+      "summary": "Psyllium was the fiber supplement compared with kiwifruit and prunes in the same study.",
+      "ingredients": ["Psyllium husk"],
+      "healthGoalIds": ["constipation"],
+      "studyIds": ["chey-2021-constipation"],
+      "originIds": ["plantago-ovata-native-range"],
+      "preparationMinutes": null,
+      "safetyScore": null
+    }
+  ],
+  "healthGoals": [
+    {
+      "id": "constipation",
+      "name": "Constipation"
+    }
+  ],
+  "studies": [
+    {
+      "id": "chey-2021-constipation",
+      "healthGoalId": "constipation",
+      "title": "Exploratory Comparative Effectiveness Trial of Green Kiwifruit, Psyllium, or Prunes in US Patients With Chronic Constipation",
+      "participantsAnalyzed": 75,
+      "summary": "The four-week US study compared three groups. The participant count is for the full study across all groups.",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/34074830/"
+    }
+  ],
+  "origins": [
+    {
+      "id": "kiwifruit-native-range",
+      "continents": ["Asia"],
+      "summary": "Kew lists the plant as native to central and southern China.",
+      "sourceUrl": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A60458895-2/general-information"
+    },
+    {
+      "id": "dried-plum-traditional-use",
+      "continents": [],
+      "summary": "A clinical paper documents traditional use of dried plums for constipation without naming a single originating community.",
+      "sourceUrl": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1365-2036.2011.04594.x"
+    },
+    {
+      "id": "plantago-ovata-native-range",
+      "continents": ["Africa", "Asia", "Europe", "North America"],
+      "summary": "Kew records native populations of Plantago ovata in parts of all four continents.",
+      "sourceUrl": "https://powo.science.kew.org/taxon/685486-1"
+    }
+  ]
+}

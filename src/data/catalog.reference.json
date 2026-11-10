@@ -1,0 +1,799 @@
+{
+  "metadata": {
+    "purpose": "Development reference snapshot from Ash team-review dataset; replace with live database for final integration",
+    "medicalReviewStatus": "not_reviewed",
+    "participantDefinition": "Uses analyzed count when provided, otherwise randomized count, otherwise enrolled; non-equivalent study denominators are identified in UI."
+  },
+  "goals": [
+    {
+      "id": "acne",
+      "name": "Acne vulgaris"
+    },
+    {
+      "id": "acute-bronchitis-symptoms",
+      "name": "Symptoms of acute bronchitis"
+    },
+    {
+      "id": "acute-cough",
+      "name": "Acute cough"
+    },
+    {
+      "id": "allergic-rhinitis",
+      "name": "Allergic rhinitis"
+    },
+    {
+      "id": "anxiety-symptoms",
+      "name": "Anxiety symptoms"
+    },
+    {
+      "id": "common-cold-duration",
+      "name": "Duration of the common cold"
+    },
+    {
+      "id": "common-cold-prevention",
+      "name": "Common cold prevention"
+    },
+    {
+      "id": "constipation",
+      "name": "Constipation"
+    },
+    {
+      "id": "functional-dyspepsia",
+      "name": "Functional dyspepsia"
+    },
+    {
+      "id": "ibs-symptoms",
+      "name": "Symptoms of diagnosed irritable bowel syndrome"
+    },
+    {
+      "id": "irritant-hand-eczema",
+      "name": "Chronic irritant hand eczema"
+    },
+    {
+      "id": "knee-osteoarthritis-pain",
+      "name": "Pain from knee osteoarthritis"
+    },
+    {
+      "id": "partial-thickness-burns",
+      "name": "Partial-thickness (second-degree) burns"
+    },
+    {
+      "id": "primary-dysmenorrhea",
+      "name": "Primary dysmenorrhea"
+    }
+  ],
+  "remedies": [
+    {
+      "id": "aloe-topical-burns",
+      "name": "Topical aloe gel in burn-care research",
+      "goalIds": [
+        "partial-thickness-burns"
+      ],
+      "searchTerms": [
+        "aloe",
+        "aloe vera",
+        "burn"
+      ],
+      "studyIds": [],
+      "researchNote": "Aloe leaf gel, latex, and whole-leaf extracts are distinct preparations; this record concerns topical gel.",
+      "researchSourceIds": [
+        "aloe-nccih-2025"
+      ]
+    },
+    {
+      "id": "boswellia-knee-oa",
+      "name": "Boswellia extract for knee osteoarthritis pain",
+      "goalIds": [
+        "knee-osteoarthritis-pain"
+      ],
+      "searchTerms": [
+        "boswellia",
+        "Indian frankincense",
+        "5-Loxin",
+        "Boswellia extract for knee osteoarthritis pain"
+      ],
+      "studyIds": [
+        "sengupta-boswellia-2008"
+      ],
+      "researchNote": "Boswellia serrata products are extracts of the tree’s gummy resin.",
+      "researchSourceIds": [
+        "boswellia-livertox"
+      ]
+    },
+    {
+      "id": "capsaicin-knee-oa",
+      "name": "Topical capsaicin for knee osteoarthritis pain",
+      "goalIds": [
+        "knee-osteoarthritis-pain"
+      ],
+      "searchTerms": [
+        "capsaicin",
+        "chili-pepper-derived topical analgesic",
+        "Topical capsaicin for knee osteoarthritis pain"
+      ],
+      "studyIds": [
+        "deal-capsaicin-1991"
+      ],
+      "researchNote": "Capsaicin occurs in chili peppers and is used in topical pain-relief products.",
+      "researchSourceIds": [
+        "medline-capsaicin"
+      ]
+    },
+    {
+      "id": "colloidal-oatmeal-cream",
+      "name": "Colloidal oatmeal cream for itchy hand eczema",
+      "goalIds": [
+        "irritant-hand-eczema"
+      ],
+      "searchTerms": [
+        "colloidal oatmeal",
+        "oat cream",
+        "itch",
+        "hand eczema"
+      ],
+      "studyIds": [
+        "oatmeal-sobhan-2020"
+      ],
+      "researchNote": "A trial used 1% colloidal oatmeal cream four times daily for six weeks; both groups also used fluocinolone 0.025% for the first two weeks.",
+      "researchSourceIds": [
+        "oatmeal-hand-eczema-2020"
+      ]
+    },
+    {
+      "id": "echinacea-cold-prevention",
+      "name": "Echinacea extract for common cold prevention",
+      "goalIds": [
+        "common-cold-prevention"
+      ],
+      "searchTerms": [
+        "echinacea",
+        "purple coneflower",
+        "Echinacea extract for common cold prevention"
+      ],
+      "studyIds": [
+        "jawad-echinacea-2012"
+      ],
+      "researchNote": "Echinacea purpurea is one of the echinacea species used in herbal products.",
+      "researchSourceIds": [
+        "nccih-echinacea"
+      ]
+    },
+    {
+      "id": "flaxseed",
+      "name": "Flaxseed for constipation",
+      "goalIds": [
+        "constipation"
+      ],
+      "searchTerms": [
+        "Linseed",
+        "Flaxseed for constipation"
+      ],
+      "studyIds": [
+        "sun-2020-flax-constipation"
+      ],
+      "researchNote": "Flaxseed, or linseed, is the ripe seed of Linum usitatissimum.",
+      "researchSourceIds": [
+        "ema-linseed"
+      ]
+    },
+    {
+      "id": "ginger-dysmenorrhea",
+      "name": "Ginger powder capsules for menstrual cramps",
+      "goalIds": [
+        "primary-dysmenorrhea"
+      ],
+      "searchTerms": [
+        "ginger",
+        "Zingiber officinale",
+        "Ginger powder capsules for menstrual cramps"
+      ],
+      "studyIds": [
+        "rahnama-ginger-2012"
+      ],
+      "researchNote": "Ginger is Zingiber officinale; its rhizome is used in food and herbal products.",
+      "researchSourceIds": [
+        "nccih-ginger"
+      ]
+    },
+    {
+      "id": "green-kiwifruit",
+      "name": "Green kiwifruit for constipation",
+      "goalIds": [
+        "constipation"
+      ],
+      "searchTerms": [
+        "Green kiwifruit for constipation"
+      ],
+      "studyIds": [
+        "chey-2021-three-arm-constipation"
+      ],
+      "researchNote": "Green kiwifruit is Actinidia chinensis var. deliciosa, also known in clinical literature as Actinidia deliciosa.",
+      "researchSourceIds": [
+        "kew-green-kiwi"
+      ]
+    },
+    {
+      "id": "honey-acute-cough",
+      "name": "Honey for acute cough",
+      "goalIds": [
+        "acute-cough"
+      ],
+      "searchTerms": [
+        "honey",
+        "cough"
+      ],
+      "studyIds": [],
+      "researchNote": "Honey is a bee-produced food whose composition varies with its botanical source.",
+      "researchSourceIds": [
+        "honey-history-2013"
+      ]
+    },
+    {
+      "id": "lavender-oral-anxiety",
+      "name": "Standardized oral lavender for anxiety symptoms",
+      "goalIds": [
+        "anxiety-symptoms"
+      ],
+      "searchTerms": [
+        "lavender",
+        "Silexan",
+        "Standardized oral lavender for anxiety symptoms"
+      ],
+      "studyIds": [
+        "kasper-lavender-2014"
+      ],
+      "researchNote": "Silexan is a proprietary preparation produced from Lavandula angustifolia for oral clinical studies.",
+      "researchSourceIds": [
+        "lavender-review-2023"
+      ]
+    },
+    {
+      "id": "pelargonium-acute-bronchitis",
+      "name": "Pelargonium liquid extract for acute bronchitis symptoms",
+      "goalIds": [
+        "acute-bronchitis-symptoms"
+      ],
+      "searchTerms": [
+        "pelargonium",
+        "EPs 7630",
+        "umckaloabo",
+        "Pelargonium liquid extract for acute bronchitis symptoms"
+      ],
+      "studyIds": [
+        "chuchalin-pelargonium-2005"
+      ],
+      "researchNote": "Pelargonium medicinal preparations use root extracts; EMA’s monograph covers P. sidoides and P. reniforme.",
+      "researchSourceIds": [
+        "ema-pelargonium-summary"
+      ]
+    },
+    {
+      "id": "peppermint-caraway",
+      "name": "Fixed peppermint and caraway oil for functional dyspepsia",
+      "goalIds": [
+        "functional-dyspepsia"
+      ],
+      "searchTerms": [
+        "Fixed peppermint and caraway oil for functional dyspepsia"
+      ],
+      "studyIds": [
+        "rich-2017-menthacarin-fd"
+      ],
+      "researchNote": "The studied intervention combines peppermint oil and caraway oil in a fixed proprietary preparation.",
+      "researchSourceIds": [
+        "rich-2017-menthacarin"
+      ]
+    },
+    {
+      "id": "peppermint-oil",
+      "name": "Enteric-coated peppermint oil for IBS symptoms",
+      "goalIds": [
+        "ibs-symptoms"
+      ],
+      "searchTerms": [
+        "Enteric-coated peppermint oil for IBS symptoms"
+      ],
+      "studyIds": [
+        "weerts-2020-persuade"
+      ],
+      "researchNote": "Peppermint oil is extracted from Mentha × piperita leaves and flowering parts.",
+      "researchSourceIds": [
+        "nccih-peppermint"
+      ]
+    },
+    {
+      "id": "prunes",
+      "name": "Prunes for constipation",
+      "goalIds": [
+        "constipation"
+      ],
+      "searchTerms": [
+        "Dried plums",
+        "Prunes for constipation"
+      ],
+      "studyIds": [
+        "chey-2021-three-arm-constipation"
+      ],
+      "researchNote": "Prunes are dried plums from prune cultivars of Prunus domestica.",
+      "researchSourceIds": [
+        "efsa-prunes-2012"
+      ]
+    },
+    {
+      "id": "psyllium-husk",
+      "name": "Psyllium husk for constipation",
+      "goalIds": [
+        "constipation"
+      ],
+      "searchTerms": [
+        "Ispaghula husk",
+        "Psyllium husk for constipation"
+      ],
+      "studyIds": [
+        "chey-2021-three-arm-constipation"
+      ],
+      "researchNote": "Psyllium husk is the seed coat of Plantago ovata; ispaghula is another name.",
+      "researchSourceIds": [
+        "ema-ispaghula-husk"
+      ]
+    },
+    {
+      "id": "saline-nasal-irrigation",
+      "name": "Saline nasal irrigation for allergic rhinitis",
+      "goalIds": [
+        "allergic-rhinitis"
+      ],
+      "searchTerms": [
+        "saline",
+        "nasal rinse",
+        "hay fever"
+      ],
+      "studyIds": [],
+      "researchNote": "Nasal irrigation uses saline solution; studies used different devices, volumes, and salt concentrations.",
+      "researchSourceIds": [
+        "saline-cochrane-2018"
+      ]
+    },
+    {
+      "id": "senna",
+      "name": "Standardized senna for occasional constipation",
+      "goalIds": [
+        "constipation"
+      ],
+      "searchTerms": [
+        "Standardized senna for occasional constipation"
+      ],
+      "studyIds": [
+        "morishita-2021-constipation"
+      ],
+      "researchNote": "Senna leaf medicines use Senna alexandrina and are standardized for anthraquinone content.",
+      "researchSourceIds": [
+        "ema-senna-leaf"
+      ]
+    },
+    {
+      "id": "tea-tree-acne-gel",
+      "name": "Tea tree oil gel for mild to moderate acne",
+      "goalIds": [
+        "acne"
+      ],
+      "searchTerms": [
+        "tea tree",
+        "melaleuca",
+        "acne"
+      ],
+      "studyIds": [
+        "tea-tree-enshaieh-2007"
+      ],
+      "researchNote": "Tea tree oil is distilled from Melaleuca alternifolia leaves.",
+      "researchSourceIds": [
+        "tea-tree-nccih"
+      ]
+    },
+    {
+      "id": "turmeric-knee-oa",
+      "name": "Turmeric extract for knee osteoarthritis pain",
+      "goalIds": [
+        "knee-osteoarthritis-pain"
+      ],
+      "searchTerms": [
+        "turmeric",
+        "curcumin",
+        "Turmeric extract for knee osteoarthritis pain"
+      ],
+      "studyIds": [
+        "wang-turmeric-2020"
+      ],
+      "researchNote": "Turmeric contains curcuminoids, including curcumin; its underground stem is used in food and other preparations.",
+      "researchSourceIds": [
+        "nccih-turmeric"
+      ]
+    },
+    {
+      "id": "zinc-oral-lozenges",
+      "name": "Oral zinc lozenges for common-cold duration",
+      "goalIds": [
+        "common-cold-duration"
+      ],
+      "searchTerms": [
+        "zinc",
+        "zinc acetate",
+        "zinc gluconate",
+        "cold"
+      ],
+      "studyIds": [
+        "zinc-hemila-2020"
+      ],
+      "researchNote": "Cold studies have tested oral zinc lozenges in several salt formulations, including acetate and gluconate.",
+      "researchSourceIds": [
+        "zinc-cochrane-2024"
+      ]
+    }
+  ],
+  "studies": [
+    {
+      "id": "chey-2021-three-arm-constipation",
+      "title": "Green kiwifruit, prunes and psyllium comparative trial",
+      "remedyIds": [
+        "green-kiwifruit",
+        "prunes",
+        "psyllium-husk"
+      ],
+      "design": "controlled_trial",
+      "human": true,
+      "participantCount": 75,
+      "sourceIds": [
+        "chey-2021-kiwi-prunes-psyllium"
+      ]
+    },
+    {
+      "id": "chuchalin-pelargonium-2005",
+      "title": "EPs 7630 liquid for acute bronchitis in adults",
+      "remedyIds": [
+        "pelargonium-acute-bronchitis"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 124,
+      "sourceIds": [
+        "pelargonium-chuchalin-2005"
+      ]
+    },
+    {
+      "id": "deal-capsaicin-1991",
+      "title": "Topical capsaicin for painful arthritic knees",
+      "remedyIds": [
+        "capsaicin-knee-oa"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 101,
+      "sourceIds": [
+        "capsaicin-deal-1991"
+      ]
+    },
+    {
+      "id": "jawad-echinacea-2012",
+      "title": "Echinacea purpurea for common cold prevention",
+      "remedyIds": [
+        "echinacea-cold-prevention"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 755,
+      "sourceIds": [
+        "echinacea-jawad-2012"
+      ]
+    },
+    {
+      "id": "kasper-lavender-2014",
+      "title": "Oral Silexan for generalized anxiety disorder",
+      "remedyIds": [
+        "lavender-oral-anxiety"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 539,
+      "sourceIds": [
+        "lavender-kasper-2014"
+      ]
+    },
+    {
+      "id": "morishita-2021-constipation",
+      "title": "Senna, magnesium oxide and placebo in chronic constipation",
+      "remedyIds": [
+        "senna"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 90,
+      "sourceIds": [
+        "morishita-2021-senna"
+      ]
+    },
+    {
+      "id": "oatmeal-sobhan-2020",
+      "title": "Colloidal oatmeal 1% in chronic irritant hand eczema",
+      "remedyIds": [
+        "colloidal-oatmeal-cream"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 50,
+      "sourceIds": [
+        "oatmeal-hand-eczema-2020"
+      ]
+    },
+    {
+      "id": "rahnama-ginger-2012",
+      "title": "Ginger powder for primary dysmenorrhea",
+      "remedyIds": [
+        "ginger-dysmenorrhea"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 120,
+      "sourceIds": [
+        "ginger-rahnama-2012"
+      ]
+    },
+    {
+      "id": "rich-2017-menthacarin-fd",
+      "title": "Fixed peppermint/caraway oil versus placebo for functional dyspepsia",
+      "remedyIds": [
+        "peppermint-caraway"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 114,
+      "sourceIds": [
+        "rich-2017-menthacarin"
+      ]
+    },
+    {
+      "id": "sengupta-boswellia-2008",
+      "title": "5-Loxin for knee osteoarthritis",
+      "remedyIds": [
+        "boswellia-knee-oa"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 75,
+      "sourceIds": [
+        "boswellia-sengupta-2008"
+      ]
+    },
+    {
+      "id": "sun-2020-flax-constipation",
+      "title": "Flaxseed flour versus lactulose for functional constipation",
+      "remedyIds": [
+        "flaxseed"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 90,
+      "sourceIds": [
+        "sun-2020-flaxseed"
+      ]
+    },
+    {
+      "id": "tea-tree-enshaieh-2007",
+      "title": "5% tea tree oil gel versus placebo in acne",
+      "remedyIds": [
+        "tea-tree-acne-gel"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 60,
+      "sourceIds": [
+        "tea-tree-acne-trial-2007"
+      ]
+    },
+    {
+      "id": "wang-turmeric-2020",
+      "title": "Curcuma longa extract for symptomatic knee osteoarthritis",
+      "remedyIds": [
+        "turmeric-knee-oa"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 70,
+      "sourceIds": [
+        "turmeric-wang-2020"
+      ]
+    },
+    {
+      "id": "weerts-2020-persuade",
+      "title": "Intestinal-release peppermint oil versus placebo in IBS",
+      "remedyIds": [
+        "peppermint-oil"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 189,
+      "sourceIds": [
+        "weerts-2020-peppermint"
+      ]
+    },
+    {
+      "id": "zinc-hemila-2020",
+      "title": "Commercial zinc acetate lozenges for common cold",
+      "remedyIds": [
+        "zinc-oral-lozenges"
+      ],
+      "design": "randomized_controlled_trial",
+      "human": true,
+      "participantCount": 87,
+      "sourceIds": [
+        "zinc-lozenge-trial-2020"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "aloe-nccih-2025",
+      "title": "Aloe Vera: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/aloe-vera"
+    },
+    {
+      "id": "boswellia-livertox",
+      "title": "Boswellia Serrata",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK563692/"
+    },
+    {
+      "id": "boswellia-sengupta-2008",
+      "title": "A double blind, randomized, placebo controlled study of the efficacy and safety of 5-Loxin for treatment of osteoarthritis of the knee",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18667054/"
+    },
+    {
+      "id": "capsaicin-deal-1991",
+      "title": "Treatment of arthritis with topical capsaicin: a double-blind trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1954640/"
+    },
+    {
+      "id": "chey-2021-kiwi-prunes-psyllium",
+      "title": "Exploratory Comparative Effectiveness Trial of Green Kiwifruit, Psyllium, or Prunes in US Patients With Chronic Constipation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34074830/"
+    },
+    {
+      "id": "echinacea-jawad-2012",
+      "title": "Safety and Efficacy Profile of Echinacea purpurea to Prevent Common Cold Episodes: A Randomized, Double-Blind, Placebo-Controlled Trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23024696/"
+    },
+    {
+      "id": "efsa-prunes-2012",
+      "title": "Scientific Opinion on dried plums of prune cultivars (Prunus domestica L.) and maintenance of normal bowel function",
+      "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.2903/j.efsa.2012.2712"
+    },
+    {
+      "id": "ema-ispaghula-husk",
+      "title": "Plantaginis ovatae seminis tegumentum — Ispaghula husk",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/plantaginis-ovatae-seminis-tegumentum"
+    },
+    {
+      "id": "ema-linseed",
+      "title": "Lini semen — Linseed",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/lini-semen"
+    },
+    {
+      "id": "ema-pelargonium-summary",
+      "title": "Pelargonii radix: herbal medicinal product",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/pelargonii-radix"
+    },
+    {
+      "id": "ema-senna-leaf",
+      "title": "Sennae folium — Senna leaf",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/sennae-folium"
+    },
+    {
+      "id": "ginger-rahnama-2012",
+      "title": "Effect of Zingiber officinale R. rhizomes (ginger) on pain relief in primary dysmenorrhea: a placebo randomized trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22781186/"
+    },
+    {
+      "id": "honey-history-2013",
+      "title": "Traditional and Modern Uses of Natural Honey in Human Diseases: A Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3758027/"
+    },
+    {
+      "id": "kew-green-kiwi",
+      "title": "Actinidia chinensis var. deliciosa (A.Chev.) A.Chev.",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A60458895-2/general-information"
+    },
+    {
+      "id": "lavender-kasper-2014",
+      "title": "Lavender oil preparation Silexan is effective in generalized anxiety disorder--a randomized, double-blind comparison to placebo and paroxetine",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24456909/"
+    },
+    {
+      "id": "lavender-review-2023",
+      "title": "Efficacy of Silexan in patients with anxiety disorders: a meta-analysis of randomized, placebo-controlled trials",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36717399/"
+    },
+    {
+      "id": "medline-capsaicin",
+      "title": "Capsaicin Topical",
+      "url": "https://medlineplus.gov/druginfo/meds/a620055.html"
+    },
+    {
+      "id": "morishita-2021-senna",
+      "title": "Senna Versus Magnesium Oxide for the Treatment of Chronic Constipation: A Randomized, Placebo-Controlled Trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32969946/"
+    },
+    {
+      "id": "nccih-echinacea",
+      "title": "Echinacea: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/echinacea"
+    },
+    {
+      "id": "nccih-ginger",
+      "title": "Ginger: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/ginger"
+    },
+    {
+      "id": "nccih-peppermint",
+      "title": "Peppermint Oil",
+      "url": "https://www.nccih.nih.gov/health/peppermint-oil"
+    },
+    {
+      "id": "nccih-turmeric",
+      "title": "Turmeric: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/turmeric"
+    },
+    {
+      "id": "oatmeal-hand-eczema-2020",
+      "title": "The Efficacy of Colloidal Oatmeal Cream 1% as Add-on Therapy in the Management of Chronic Irritant Hand Eczema: A Double-Blind Study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7103792/"
+    },
+    {
+      "id": "pelargonium-chuchalin-2005",
+      "title": "Treatment of acute bronchitis in adults with a pelargonium sidoides preparation (EPs 7630): a randomized, double-blind, placebo-controlled trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16781588/"
+    },
+    {
+      "id": "rich-2017-menthacarin",
+      "title": "A randomized placebo-controlled trial on the effects of Menthacarin, a proprietary peppermint- and caraway-oil-preparation, on symptoms and quality of life in patients with functional dyspepsia",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28695660/"
+    },
+    {
+      "id": "saline-cochrane-2018",
+      "title": "Saline irrigation for allergic rhinitis",
+      "url": "https://www.cochrane.org/evidence/CD012597_nasal-saline-allergic-rhinitis"
+    },
+    {
+      "id": "sun-2020-flaxseed",
+      "title": "Effects of flaxseed supplementation on functional constipation and quality of life in a Chinese population: A randomized trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32229443/"
+    },
+    {
+      "id": "tea-tree-acne-trial-2007",
+      "title": "The efficacy of 5% topical tea tree oil gel in mild to moderate acne vulgaris: a randomized, double-blind placebo-controlled study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17314442/"
+    },
+    {
+      "id": "tea-tree-nccih",
+      "title": "Tea Tree Oil: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/tea-tree-oil"
+    },
+    {
+      "id": "turmeric-wang-2020",
+      "title": "Effectiveness of Curcuma longa Extract for the Treatment of Symptoms and Effusion-Synovitis of Knee Osteoarthritis: A Randomized Trial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32926799/"
+    },
+    {
+      "id": "weerts-2020-peppermint",
+      "title": "Efficacy and Safety of Peppermint Oil in a Randomized, Double-Blind Trial of Patients With Irritable Bowel Syndrome",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31470006/"
+    },
+    {
+      "id": "zinc-cochrane-2024",
+      "title": "Zinc for the prevention and treatment of the common cold",
+      "url": "https://www.cochrane.org/evidence/CD014914_zinc-prevention-and-treatment-common-cold"
+    },
+    {
+      "id": "zinc-lozenge-trial-2020",
+      "title": "Zinc acetate lozenges for the treatment of the common cold: a randomised controlled trial",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10092844/"
+    }
+  ]
+}

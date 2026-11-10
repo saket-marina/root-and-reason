@@ -1,0 +1,43 @@
+/* Milestone 3 components. Scoped classes avoid changing the existing app shell. */
+.rr-discover-page h2, .rr-compare-page h2 { margin: 30px 0 18px; font-family: 'Playfair Display', Georgia, serif; color: var(--green-dark); font-size: 29px; font-weight: 500; }
+.rr-search-form { max-width: 770px; margin-bottom: 30px; }
+.rr-search-form label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+.rr-search-form .search-row input { min-height: 46px; }
+.rr-goal-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 20px 0 30px; }
+.rr-goal-card { display: flex; flex-direction: column; text-align: left; gap: 9px; min-height: 164px; padding: 20px; border: 1px solid var(--line); border-radius: 17px; background: var(--paper); color: var(--ink); cursor: pointer; }
+.rr-goal-card:hover, .rr-goal-card:focus-visible { border-color: var(--green); box-shadow: 0 5px 22px #23382b13; }
+.rr-goal-name { color: var(--green-dark); font-size: 19px; font-weight: 700; }
+.rr-goal-count { color: var(--muted); font-size: 13px; }
+.rr-goal-action { margin-top: auto; color: var(--green); font-size: 13px; font-weight: 700; }
+.rr-goal-preview { display: none; flex-direction: column; gap: 5px; padding: 10px; background: var(--green-soft); border-radius: 9px; font-size: 12px; line-height: 1.5; }
+.rr-goal-card:hover .rr-goal-preview, .rr-goal-card:focus-visible .rr-goal-preview { display: flex; }
+.rr-remedy-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 20px 0 30px; }
+.rr-remedy-card { padding: 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 17px; display: flex; flex-direction: column; gap: 16px; justify-content: space-between; }
+.rr-remedy-card h3 { margin: 0 0 8px; font-size: 18px; color: var(--green-dark); }
+.rr-remedy-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.rr-remedy-actions { display: flex; gap: 10px; }
+.rr-back-link { border: 0; background: none; padding: 0; font: inherit; color: var(--green); cursor: pointer; font-weight: 700; }
+.rr-feedback { background: var(--green-soft); padding: 17px 20px; border-radius: 13px; margin: 18px 0; color: var(--green-dark); }
+.rr-feedback p { margin: 0 0 6px; }
+.rr-feedback ul { margin-bottom: 0; }
+.rr-compare-link a { color: var(--green); font-weight: 700; }
+.rr-tray { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 24px; }
+.rr-tray-item { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; display: flex; align-items: center; gap: 14px; padding: 10px 12px; }
+.rr-tray-item button { color: var(--green); background: none; border: 0; cursor: pointer; text-decoration: underline; }
+.rr-goal-picker { margin: 18px 0; }
+.rr-goal-picker label { display: block; font-weight: 700; margin-bottom: 8px; }
+.rr-goal-picker select { padding: 12px; min-width: min(100%,330px); border: 1px solid var(--line); border-radius: 9px; background: var(--paper); }
+.rr-chart { margin: 22px 0 32px; padding: 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+.rr-chart h3 { margin-top: 0; color: var(--green-dark); }
+.rr-chart-row { display: grid; grid-template-columns: minmax(150px, 1.2fr) minmax(100px, 2fr) 68px; align-items: center; gap: 13px; margin: 12px 0; font-size: 13px; }
+.rr-chart-track { height: 18px; background: var(--green-soft); border-radius: 5px; overflow: hidden; }
+.rr-chart-bar { height: 100%; background: var(--green); min-width: 0; }
+.rr-study-note { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.rr-research-item { padding: 17px 0; border-bottom: 1px solid var(--line); }
+.rr-research-item h3 { margin: 0 0 8px; }
+.rr-research-item p { color: var(--muted); line-height: 1.65; }
+.rr-research-item a { color: var(--green); text-decoration: underline; word-break: break-word; }
+@media (max-width: 760px) { .rr-goal-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .rr-remedy-grid { grid-template-columns: 1fr; } }
+@media (max-width: 510px) { .rr-goal-grid { grid-template-columns: 1fr; } .rr-chart-row { grid-template-columns: 1fr; gap: 4px; } }
+
+.rr-data-notice { margin: 0 0 18px; font-size: 12px; color: var(--muted); }

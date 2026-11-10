@@ -161,17 +161,17 @@ const pageInfo = {
   'Remedy Shelf': { intro: 'Your saved remedies and comparisons will appear here on this device.' },
 };
 
-function PlaceholderPage({ title }) {
+function PlaceholderPage({ title, children }) {
   return (
     <main className="page-main subpage">
       <p className="eyebrow">Root &amp; Remedy</p>
       <h1>{title}</h1>
       <p className="subpage-intro">{pageInfo[title].intro}</p>
-      <div className="coming-soon-card">
+      {children ?? <div className="coming-soon-card">
         <SproutMark className="coming-soon-mark" />
         <p>This section is being prepared. You can return to Home or explore another page.</p>
         <Link className="text-link" to="/">Go to Home <span aria-hidden="true">→</span></Link>
-      </div>
+      </div>}
     </main>
   );
 }

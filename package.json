@@ -8,25 +8,16 @@
     "build": "vite build",
     "preview": "vite preview",
     "dev:firestore": "vite --mode firestore --host 127.0.0.1 --port 5176 --strictPort",
-    "firestore:start": "node scripts/app/local-firestore.mjs start",
-    "firestore:seed": "node scripts/app/local-firestore.mjs seed",
-    "firestore:verify": "node scripts/app/local-firestore.mjs verify",
-    "data:validate": "node scripts/validate.mjs"
+    "firestore:start": "npx --yes firebase-tools@15.34.0 emulators:start --only firestore --project demo-root-remedy-team-m2 --config firebase.local.json",
+    "firestore:seed": "node scripts/seed-firestore.mjs"
   },
   "dependencies": {
+    "firebase": "13.1.0",
     "react": "latest",
     "react-dom": "latest",
-    "react-router-dom": "latest",
-    "firebase": "13.1.0"
+    "react-router-dom": "latest"
   },
   "devDependencies": {
-    "vite": "latest",
-    "ajv": "8.20.0",
-    "ajv-formats": "3.0.1",
-    "firebase-admin": "14.5.0",
-    "firebase-tools": "15.34.0"
-  },
-  "overrides": {
-    "@grpc/grpc-js": "1.13.6"
+    "vite": "latest"
   }
 }

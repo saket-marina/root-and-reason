@@ -37,14 +37,8 @@ npm run dev
 
 The first-visit learning-only notice is saved in browser local storage after the visitor checks the acknowledgement and accepts.
 
-## Milestone 2 data preview
+## Firestore sample
 
-Use Node 24 LTS (24.12 or later) and Java 21 or later for the Firestore emulator. Install with `npm ci`, then run `npm run firestore:start`. When the catalog verifies, run `npm run dev:firestore` in a second terminal and open [Remedies](http://127.0.0.1:5176/remedies). The sample card shows a remedy and its linked ingredient, goal, regions, study count, participant count, and citation from Firestore. The emulator listens at `127.0.0.1:8088`.
+Use Node 22.12 or newer and Java 21 or newer. Run `npm ci`, then start the local emulator with `npm run firestore:start`. In a second terminal, run `npm run firestore:seed` and `npm run dev:firestore`. Open [Remedies](http://127.0.0.1:5176/remedies) to see the three sample records.
 
-- [#6 data model](https://github.com/saket-marina/root-and-reason/issues/6) · [Schema](schemas/dataset.schema.json) · [Data dictionary](docs/data-dictionary.md)
-- [#7 data retrieval](https://github.com/saket-marina/root-and-reason/issues/7) · [Firestore reader](src/data/firestore.js) · [Seed and readback](scripts/app/local-firestore.mjs)
-- [#8 initial records](https://github.com/saket-marina/root-and-reason/issues/8) · [Remedy data](data/remedies.json) · [Verified participant counts](data/app-research-updates.json)
-
-Run `npm run data:validate` to check the schema and linked records. Run `npm run firestore:verify` while the emulator is running to check the seeded data and confirm browser writes are denied. Run `npm run firestore:seed` after changing the dataset.
-
-The reference catalog is a research draft. A hosted Firestore preview requires an approved release and the Firebase web configuration from [the environment example](.env.example).
+[Sample data](data/remedy-samples.json) uses one Firestore document per remedy, health goal, study, and origin. Remedies link to the other collections by ID. Studies and origins include source links. Origin records use four continent labels: Africa, Asia, Europe, and North America.

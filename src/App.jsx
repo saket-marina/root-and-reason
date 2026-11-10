@@ -1,9 +1,9 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 
-const useCatalog = import.meta.env.VITE_DATA_MODE === 'published' ||
-  (import.meta.env.DEV && import.meta.env.MODE === 'firestore');
-const CatalogPreview = useCatalog ? lazy(() => import('./CatalogPreview.jsx')) : null;
+const CatalogPreview = import.meta.env.DEV && import.meta.env.MODE === 'firestore'
+  ? lazy(() => import('./CatalogPreview.jsx'))
+  : null;
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';
 const SAVED_REMEDIES_KEY = 'savedRemedies';
@@ -224,7 +224,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/remedies" element={
           <PlaceholderPage title="Remedies">
-            {CatalogPreview ? <Suspense fallback={<p role="status">Opening the remedy catalog…</p>}><CatalogPreview /></Suspense> : null}
+            {CatalogPreview && (
+              <Suspense fallback={<p role="status">Loading sample remedies…</p>}>
+                <CatalogPreview />
+              </Suspense>
+            )}
           </PlaceholderPage>
         } />
         <Route path="/compare" element={<PlaceholderPage title="Compare" />} />

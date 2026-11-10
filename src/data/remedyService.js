@@ -1,18 +1,13 @@
 import { validateCatalog } from './remedyCatalog.js';
+import { loadFirestoreCatalog } from './firestoreCatalog.js';
 
-// The URL is a future integration contract; Ash's endpoint must be confirmed.
 export async function fetchRemedyCatalog(signal) {
-  const endpoint = import.meta.env.VITE_REMEDY_CATALOG_URL;
-  if (endpoint) {
-    const response = await fetch(endpoint, { signal });
-    if (!response.ok) throw new Error('Could not retrieve remedy data');
-    return { catalog: validateCatalog(await response.json()), reference: false };
-  }
-  if (import.meta.env.DEV || import.meta.env.VITE_USE_REFERENCE_CATALOG === 'true') {
-    const { default: fixture } = await import('./catalog.reference.json');
-    return { catalog: validateCatalog(fixture), reference: true };
-  }
-  throw new Error('Database connection is not configured');
+  const data = await loadFirestoreCatalog(signal);
+
+  return {
+    catalog: validateCatalog(data),
+    reference: false,
+  };
 }
 
 export function findRemediesForGoal(catalog, goalId) {

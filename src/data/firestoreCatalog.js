@@ -1,3 +1,4 @@
+import samples from '../../data/remedy-samples.json';
 import { getApps, initializeApp } from 'firebase/app';
 import {
   collection,
@@ -34,18 +35,23 @@ async function readCollection(database, name) {
 }
 
 export async function loadFirestoreCatalog(signal) {
-  if (!import.meta.env.DEV || import.meta.env.MODE !== 'firestore') {
-    throw new Error('Start the local catalog with npm run dev:firestore.');
+  let remedies, goals, studies, origins;
+
+  if (import.meta.env.DEV && import.meta.env.MODE === 'firestore') {
+    const database = getDatabase();
+
+    [remedies, goals, studies, origins] = await Promise.all([
+      readCollection(database, 'remedies'),
+      readCollection(database, 'healthGoals'),
+      readCollection(database, 'studies'),
+      readCollection(database, 'origins'),
+    ]);
+  } else {
+    remedies = samples.remedies;
+    goals = samples.healthGoals;
+    studies = samples.studies;
+    origins = samples.origins;
   }
-
-  const database = getDatabase();
-
-  const [remedies, goals, studies, origins] = await Promise.all([
-    readCollection(database, 'remedies'),
-    readCollection(database, 'healthGoals'),
-    readCollection(database, 'studies'),
-    readCollection(database, 'origins'),
-  ]);
 
   if (signal?.aborted) {
     throw new Error('Catalog request cancelled');

@@ -1,8 +1,7 @@
 # Root & Reason
 
 ## Mission Statement
-Our mission is to help people care for themselves at home using remedies rooted in their culture, pairing traditional practices with science-based information, clear safety guidance, and respect for privacy.
-
+Our mission is to help people care for themselves at home using remedies rooted in their culture and around the world. Root and Remedy provides additional methods of self care that will support your health in daily life activities - pairing traditional practices with science-based information, clear safety guidance, and respect for privacy. We prioritize centering culture and keeping our users up to date with safe-remedial care.
 ## Team
 - Ahshah Olivia Kennedy - Project Manager
 - Akeara Serrano - Product Designer

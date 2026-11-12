@@ -25,6 +25,7 @@ Skills and competencies the class uses to measure performance.
 - Link to notion workspace: https://app.notion.com/p/Root-n-Remedy-3f7cfaf13eac802a87eedb28d471e061?source=copy_link
 - [Design and Specifications](https://app.notion.com/p/Design-and-Specifications-3fecfaf13eac809e8152fd4b365d0f63)
 - [Design Notes](https://app.notion.com/p/Design-Specification-Assignment-3f8cfaf13eac80ad85d2f90c50ce1211)
+- [Testing Plan](https://app.notion.com/p/Testing-Plan-414cfaf13eac8099b85ce758bd4d751c?source=copy_link))
 - Live site: https://root-and-reason-eight.vercel.app/
 - Milestones: https://github.com/saket-marina/root-and-reason/milestones
 

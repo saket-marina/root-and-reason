@@ -39,8 +39,12 @@ npm run dev
 
 The first-visit learning-only notice is saved in browser local storage after the visitor checks the acknowledgement and accepts.
 
-## Firestore sample
+## Remedy data
 
-Use Node 22.12 or newer and Java 21 or newer. Run `npm ci`, then start the local emulator with `npm run firestore:start`. In a second terminal, run `npm run firestore:seed` and `npm run dev:firestore`. Open [Remedies](http://127.0.0.1:5176/remedies) to see the three sample records.
+Use Node 22.12 or newer and Java 21 or newer. Run `npm ci`, then start the local emulator with `npm run firestore:start`. In a second terminal, run `npm run firestore:seed` and `npm run dev:firestore`. Open [Remedies](http://127.0.0.1:5176/remedies) to browse the 20 records. The standard `npm run dev` and production build use the bundled JSON.
 
-[Sample data](data/remedy-samples.json) uses one Firestore document per remedy, health goal, study, and origin. Remedies link to the other collections by ID. Studies and origins include source links. Origin records use four continent labels: Africa, Asia, Europe, and North America.
+[Data](data/remedy-samples.json) contains 20 remedies, 14 health goals, 14 extracted primary studies, 20 origin records, and 76 sources. Claims carry source IDs and section locators. Photos are supplied unchanged, with credits and license links in each record. The existing filename and three sample IDs are preserved for compatibility.
+
+Origin labels are Africa, Asia, Europe, and North America. Cranberry replaces tea tree to keep this scope. Four records have no established geographic origin and explain that omission. Preparation times and four analyzed participant counts remain unknown. Safety scores stay null, and medical review is pending.
+
+Run `npm run data:check` to check record links, citations, counts, and photo files before seeding. Research counts cover the extracted primary records. Reviews remain cited separately and their totals are excluded from the comparison charts.

@@ -218,6 +218,12 @@ export default function ComparePage({ selectedIds, onRemove }) {
                 {result.remedy.researchNote ||
                   'No research summary available yet.'}
               </p>
+              <ul>
+                {result.remedy.researchSourceIds.map((id) => {
+                  const source = catalog.sources.find((item) => item.id === id);
+                  return <li key={id}><a href={source.url}>{source.title}</a></li>;
+                })}
+              </ul>
 
               {result.studies.length === 0 ? (
                 <p>No linked studies available for this health goal.</p>

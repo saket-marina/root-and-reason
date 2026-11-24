@@ -35,22 +35,24 @@ async function readCollection(database, name) {
 }
 
 export async function loadFirestoreCatalog(signal) {
-  let remedies, goals, studies, origins;
+  let remedies, goals, studies, origins, sourceRecords;
 
   if (import.meta.env.DEV && import.meta.env.MODE === 'firestore') {
     const database = getDatabase();
 
-    [remedies, goals, studies, origins] = await Promise.all([
+    [remedies, goals, studies, origins, sourceRecords] = await Promise.all([
       readCollection(database, 'remedies'),
       readCollection(database, 'healthGoals'),
       readCollection(database, 'studies'),
       readCollection(database, 'origins'),
+      readCollection(database, 'sources'),
     ]);
   } else {
     remedies = samples.remedies;
     goals = samples.healthGoals;
     studies = samples.studies;
     origins = samples.origins;
+    sourceRecords = samples.sources || [];
   }
 
   if (signal?.aborted) {
@@ -64,13 +66,15 @@ export async function loadFirestoreCatalog(signal) {
   const goalIds = new Set(goals.map((goal) => goal.id));
   const studyIds = new Set(studies.map((study) => study.id));
 
-  const sources = studies
-    .filter((study) => study.sourceUrl)
+  // Older sample records carry a URL directly instead of source IDs.
+  const legacySources = studies
+    .filter((study) => study.sourceUrl && !study.sourceIds?.length)
     .map((study) => ({
       id: `study-source-${study.id}`,
       title: study.title,
       url: study.sourceUrl,
     }));
+  const sources = [...sourceRecords, ...legacySources];
 
   const mappedRemedies = remedies.map((remedy) => {
     if (
@@ -87,7 +91,7 @@ export async function loadFirestoreCatalog(signal) {
       goalIds: remedy.healthGoalIds,
       searchTerms: remedy.ingredients || [],
       researchNote: remedy.summary || '',
-      researchSourceIds: remedy.studyIds
+      researchSourceIds: remedy.researchSourceIds ?? remedy.studyIds
         .filter((id) => sources.some((source) => source.id === `study-source-${id}`))
         .map((id) => `study-source-${id}`),
     };
@@ -95,9 +99,9 @@ export async function loadFirestoreCatalog(signal) {
 
   const mappedStudies = studies.map((study) => ({
     ...study,
-    human: true,
+    human: study.human ?? true,
     participantCount: study.participantsAnalyzed ?? null,
-    sourceIds: study.sourceUrl ? [`study-source-${study.id}`] : [],
+    sourceIds: study.sourceIds ?? (study.sourceUrl ? [`study-source-${study.id}`] : []),
   }));
 
   return {

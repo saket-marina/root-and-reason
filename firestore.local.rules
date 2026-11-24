@@ -2,7 +2,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{collection}/{id} {
-      allow read: if collection in ['remedies', 'healthGoals', 'studies', 'origins'];
+      allow read: if collection in ['remedies', 'healthGoals', 'studies', 'origins', 'sources'];
     }
   }
 }

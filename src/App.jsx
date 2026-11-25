@@ -4,6 +4,7 @@ import RemediesPage from './pages/RemediesPage.jsx';
 import ComparePage from './pages/ComparePage.jsx';
 import RemedyDetailPage from './pages/RemedyDetailPage.jsx';
 import RemedyShelfPage from './pages/RemedyShelfPage.jsx';
+import TraditionsPage from './pages/TraditionsPage.jsx';
 import './remedy-features.css';
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';
@@ -248,7 +249,7 @@ function App() {
         <Route path="/remedies" element={<RemediesPage selectedIds={selectedIds} addToCompare={addToCompare} activeGoalId={activeGoalId} onGoalChange={setActiveGoalId} />} />
         <Route path="/remedies/:remedyId" element={<RemedyDetailPage />} />
         <Route path="/compare" element={<ComparePage selectedIds={selectedIds} onRemove={removeFromCompare} />} />
-        <Route path="/traditions" element={<PlaceholderPage title="Traditions" />} />
+        <Route path="/traditions" element={<TraditionsPage />} />
         <Route
           path="/shelf"
           element={

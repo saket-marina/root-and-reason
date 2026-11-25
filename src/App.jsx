@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import RemediesPage from './pages/RemediesPage.jsx';
 import ComparePage from './pages/ComparePage.jsx';
+import TraditionsPage from './pages/TraditionsPage.jsx';
 import './remedy-features.css';
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';
@@ -239,7 +240,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/remedies" element={<RemediesPage selectedIds={selectedIds} addToCompare={addToCompare} activeGoalId={activeGoalId} onGoalChange={setActiveGoalId} />} />
         <Route path="/compare" element={<ComparePage selectedIds={selectedIds} onRemove={removeFromCompare} />} />
-        <Route path="/traditions" element={<PlaceholderPage title="Traditions" />} />
+        <Route path="/traditions" element={<TraditionsPage />} />
         <Route path="/shelf" element={<PlaceholderPage title="Remedy Shelf" />} />
         {/* Stale or mistyped links should still offer a way back into the site. */}
         <Route path="*" element={<ErrorPage />} />

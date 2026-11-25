@@ -1,5 +1,6 @@
+import SaveComparisonButton from '../components/SaveComparisonButton.jsx';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CompareTray from '../components/CompareTray.jsx';
 import { fetchRemedyCatalog } from '../data/remedyService.js';
 import { getSharedGoals, getRemedyResearch } from '../data/comparisonLogic.js';
@@ -31,11 +32,20 @@ function BarChart({ title, rows, field }) {
 }
 
 export default function ComparePage({ selectedIds, onRemove }) {
+  const location = useLocation();
   const [catalog, setCatalog] = useState(null);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
   const [comparedIds, setComparedIds] = useState([]);
   const [goalId, setGoalId] = useState('');
+
+  useEffect(() => {
+    const saved = location.state?.savedComparison;
+    if (saved && saved.remedyIds.join(',') === selectedIds.join(',')) {
+      setGoalId(saved.goalId);
+      setComparedIds(saved.remedyIds);
+    }
+  }, [location.state, selectedIds]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -176,6 +186,7 @@ export default function ComparePage({ selectedIds, onRemove }) {
       {showingResults && (
         <section aria-label="Comparison results">
           <h2>Comparison for {currentGoal.name}</h2>
+          <SaveComparisonButton remedyIds={comparedIds} goalId={currentGoalId} />
           <h3>Shared health goals</h3>
           <ul>
             {sharedGoals.map((goal) => (

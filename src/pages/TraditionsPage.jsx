@@ -400,7 +400,7 @@ export default function TraditionsPage() {
 
           <div className="rr-traditions-heading">
             <h2>{query ? 'Search results' : 'Explore traditions and origins'}</h2>
-            <button className="rr-map-open" type="button" onClick={openMap}>Open origin map →</button>
+            <button className="rr-map-open" type="button" onClick={() => openMap()}>Open origin map →</button>
           </div>
 
           {filteredTraditions.length ? (

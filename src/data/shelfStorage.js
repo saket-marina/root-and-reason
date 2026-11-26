@@ -1,23 +1,43 @@
 const REMEDIES_KEY = 'savedRemedies';
 const COMPARISONS_KEY = 'savedComparisons';
+const SHELF_KEY = 'remedyShelf';
 
 function readItems(key) {
   try {
-    const items = JSON.parse(localStorage.getItem(key) || '[]');
+    const stored = localStorage.getItem(SHELF_KEY);
+    const items = stored === null
+      ? JSON.parse(localStorage.getItem(key) || '[]')
+      : JSON.parse(stored)?.[key];
     return Array.isArray(items) ? items : [];
   } catch {
     return [];
   }
 }
 
-function saveItems(key, items) {
+function saveShelf(shelf) {
   try {
-    localStorage.setItem(key, JSON.stringify(items));
-    window.dispatchEvent(new Event('remedy-shelf-change'));
-    return true;
+    // One write keeps remedies and comparisons together if storage is full.
+    localStorage.setItem(SHELF_KEY, JSON.stringify(shelf));
   } catch {
     return false;
   }
+
+  try {
+    localStorage.removeItem(REMEDIES_KEY);
+    localStorage.removeItem(COMPARISONS_KEY);
+  } catch {
+    // The new record is saved; older keys are no longer used.
+  }
+  window.dispatchEvent(new Event('remedy-shelf-change'));
+  return true;
+}
+
+function saveItems(key, items) {
+  return saveShelf({
+    [REMEDIES_KEY]: getSavedRemedies(),
+    [COMPARISONS_KEY]: getSavedComparisons(),
+    [key]: items,
+  });
 }
 
 export function getSavedRemedies() {
@@ -59,12 +79,5 @@ export function removeSavedComparison(id) {
 }
 
 export function clearShelf() {
-  try {
-    localStorage.setItem(REMEDIES_KEY, '[]');
-    localStorage.setItem(COMPARISONS_KEY, '[]');
-    window.dispatchEvent(new Event('remedy-shelf-change'));
-    return true;
-  } catch {
-    return false;
-  }
+  return saveShelf({ [REMEDIES_KEY]: [], [COMPARISONS_KEY]: [] });
 }

@@ -59,13 +59,13 @@ export default function RemedyShelfPage({ openComparison }) {
   }
 
   function handleClear() {
+    setConfirmClear(false);
     if (!clearShelf()) {
       setMessage('Could not clear browser storage.');
       return;
     }
 
     setMessage('Your Shelf has been cleared.');
-    setConfirmClear(false);
   }
 
   const names = (ids) => ids.map((id) => catalog?.remedies.find((r) => r.id === id)?.name || 'Unavailable remedy').join(', ');

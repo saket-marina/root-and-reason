@@ -106,9 +106,6 @@ export default function RemedyDetailPage() {
             <p>{origin.summary || 'No background recorded.'}</p>
             <SourceLinks ids={origin.sourceIds} catalog={catalog} />
           </div>) : <p>Background information is not available.</p>}
-          <h3>Safety and things to discuss with a professional</h3>
-          <ClaimList remedy={remedy} ids={remedy.cautionClaimIds} catalog={catalog} />
-          {remedy.medicalReviewStatus === 'not_reviewed' && <p className="detail-disclaimer">This entry has not been medically reviewed.</p>}
         </>}
         {tab === 'Research' && <>
           <h2>Research and evidence</h2>
@@ -142,11 +139,15 @@ export default function RemedyDetailPage() {
           <p>This section helps you understand what was studied, not how to treat a condition yourself.</p>
           {(remedy.preparation || []).map((item, i) => <div key={i} className="detail-claim"><h3>{item.name}</h3><p>{item.description}</p></div>)}
           <p>{remedy.preparationNote || 'No verified preparation time is available.'}</p>
-          <h3>Safety questions</h3>
-          <p>Could this affect my medicines, allergies, or health conditions? Does the research apply to my age and situation? When should I seek medical care?</p>
-          <ClaimList remedy={remedy} ids={remedy.cautionClaimIds} catalog={catalog} />
           <p className="detail-disclaimer">Do not use these research descriptions as dosage or treatment instructions.</p>
         </>}
+      </section>
+
+      <section className="detail-panel" aria-labelledby="detail-help-heading">
+        <h2 id="detail-help-heading">Questions and cautions</h2>
+        <p>Could this affect my medicines, allergies, or health conditions? Does the research apply to my age and situation? When should I seek medical care?</p>
+        <ClaimList remedy={remedy} ids={remedy.cautionClaimIds} catalog={catalog} />
+        {remedy.medicalReviewStatus === 'not_reviewed' && <p className="detail-disclaimer">This entry has not been medically reviewed.</p>}
       </section>
     </main>
   );

@@ -24,7 +24,7 @@
 .rr-tradition-kind { margin: 0; color: #6a7948; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
 .rr-tradition-card-title { color: var(--green-dark); font-size: 17px; font-weight: 700; line-height: 1.3; }
 .rr-tradition-region, .rr-tradition-card-count { color: var(--muted); font-size: 12px; line-height: 1.45; }
-.rr-tradition-arrow { color: var(--yellow-ink); font-size: 20px; }
+.rr-tradition-arrow { color: var(--green); font-size: 20px; }
 .rr-traditions-empty, .rr-map-unavailable { margin: 20px 0; padding: 22px; border-radius: 15px; background: var(--green-soft); color: var(--green-dark); }
 .rr-traditions-empty p { margin-bottom: 15px; }
 .rr-tradition-detail { margin-top: 18px; }
@@ -52,7 +52,7 @@
 .rr-map-intro { max-width: 760px; color: var(--muted); line-height: 1.65; }
 .rr-map-scroll { max-width: 100%; overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; border-radius: 18px; }
 .rr-map-scroll:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
-.rr-world-map { position: relative; width: 100%; min-width: 720px; aspect-ratio: 1000 / 500; margin: 22px 0 12px; overflow: hidden; border: 1px solid #a9aa97; border-radius: 18px; background: #f0eee3; box-shadow: 0 5px 18px #392f2014; }
+.rr-world-map { position: relative; width: 100%; min-width: 720px; aspect-ratio: 1000 / 500; margin: 22px 0 12px; overflow: hidden; border: 1px solid #a9aa97; border-radius: 18px; background: #edf0e8; box-shadow: 0 5px 18px #392f2014; }
 .rr-world-map > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .rr-map-regions { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .rr-map-region { fill: transparent; stroke: transparent; stroke-width: 1.5; cursor: pointer; pointer-events: all; }
@@ -65,7 +65,7 @@
 .rr-map-region-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
 .rr-map-region-option { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--green-dark); background: var(--paper); font: inherit; font-size: 12px; cursor: pointer; }
 .rr-map-region-option:hover, .rr-map-region-option:focus-visible { border-color: var(--green); background: var(--green-soft); outline-color: var(--green); }
-.rr-map-region-option.active { border-color: var(--yellow-ink); background: var(--yellow-soft); }
+.rr-map-region-option.active { border-color: var(--green); background: var(--green-soft); }
 .rr-region-results { margin-top: 28px; }
 .rr-region-results > h3 { margin: 0 0 8px; color: var(--green-dark); font-family: 'Playfair Display', Georgia, serif; font-size: 27px; font-weight: 500; }
 .rr-region-result-context, .rr-region-result-count { color: var(--muted); font-size: 13px; line-height: 1.6; }

@@ -7,7 +7,7 @@
 .rr-traditions-intro h2 { margin: 0 0 10px; font-size: 25px; }
 .rr-traditions-intro p { margin: 0 0 10px; color: var(--muted); line-height: 1.65; }
 .rr-traditions-intro p:last-child { margin-bottom: 0; }
-.rr-tradition-uncertainty { color: #64715f !important; font-size: 13px; }
+.rr-tradition-uncertainty { color: #666552 !important; font-size: 13px; }
 .rr-traditions-search { max-width: 760px; margin: 30px 0; }
 .rr-traditions-search label { display: block; margin-bottom: 9px; font-size: 14px; font-weight: 700; }
 .rr-traditions-search input { min-height: 46px; }
@@ -16,11 +16,12 @@
 .rr-map-open { border: 0; padding: 8px 0; color: var(--green); background: transparent; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
 .rr-tradition-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
 .rr-tradition-card { position: relative; display: grid; grid-template-columns: 112px minmax(0,1fr) 20px; align-items: center; gap: 16px; min-height: 140px; padding: 13px; border: 1px solid var(--line); border-radius: 16px; color: var(--ink); background: var(--paper); text-align: left; cursor: pointer; }
-.rr-tradition-card:hover, .rr-tradition-card:focus-visible { border-color: var(--green); box-shadow: 0 5px 22px #23382b13; }
+.rr-tradition-card:hover, .rr-tradition-card:focus-visible { border-color: var(--green); background: var(--green-soft); box-shadow: 0 5px 22px #23382b13; }
+.rr-tradition-card:focus-visible { outline: 3px solid var(--green-dark); outline-offset: 2px; }
 .rr-tradition-card-image { width: 112px; height: 112px; border-radius: 11px; object-fit: cover; }
-.rr-tradition-card-placeholder { display: grid; place-items: center; color: #718951; background: var(--green-soft); font-size: 30px; }
+.rr-tradition-card-placeholder { display: grid; place-items: center; color: var(--green); background: var(--green-soft); font-size: 30px; }
 .rr-tradition-card-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; min-width: 0; }
-.rr-tradition-kind { margin: 0; color: #71804f; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.rr-tradition-kind { margin: 0; color: #6a7948; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
 .rr-tradition-card-title { color: var(--green-dark); font-size: 17px; font-weight: 700; line-height: 1.3; }
 .rr-tradition-region, .rr-tradition-card-count { color: var(--muted); font-size: 12px; line-height: 1.45; }
 .rr-tradition-arrow { color: var(--green); font-size: 20px; }
@@ -37,7 +38,7 @@
 .rr-tradition-story, .rr-map-story { padding: 19px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
 .rr-tradition-story-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
 .rr-tradition-story-heading h4 { margin: 5px 0 0; color: var(--green-dark); font-size: 19px; }
-.rr-tradition-story > p { margin: 12px 0; color: #59665b; font-size: 14px; line-height: 1.7; }
+.rr-tradition-story > p { margin: 12px 0; color: #625f54; font-size: 14px; line-height: 1.7; }
 .rr-tradition-communities { color: var(--green-dark) !important; font-weight: 600; }
 .rr-tradition-source-block { margin-top: 17px; padding-top: 13px; border-top: 1px solid var(--line); }
 .rr-tradition-source-block > span { display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
@@ -51,29 +52,30 @@
 .rr-map-intro { max-width: 760px; color: var(--muted); line-height: 1.65; }
 .rr-map-scroll { max-width: 100%; overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; border-radius: 18px; }
 .rr-map-scroll:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
-.rr-world-map { position: relative; width: 100%; min-width: 720px; aspect-ratio: 1000 / 500; margin: 22px 0 12px; overflow: hidden; border: 1px solid #718576; border-radius: 18px; background: #e8efed; box-shadow: 0 5px 18px #203b2b16; }
+.rr-world-map { position: relative; width: 100%; min-width: 720px; aspect-ratio: 1000 / 500; margin: 22px 0 12px; overflow: hidden; border: 1px solid #a9aa97; border-radius: 18px; background: #edf0e8; box-shadow: 0 5px 18px #392f2014; }
 .rr-world-map > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .rr-map-regions { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .rr-map-region { fill: transparent; stroke: transparent; stroke-width: 1.5; cursor: pointer; pointer-events: all; }
-.rr-map-region.highlighted { fill: #88a77a88; stroke: #496a4e; }
-.rr-map-region.selected { fill: #64895caa; stroke: #294d35; stroke-width: 1.8; }
+.rr-map-region.highlighted { fill: #e2ca6488; stroke: var(--yellow-ink); }
+.rr-map-region.selected { fill: #d0b344aa; stroke: #5f4a12; stroke-width: 1.8; }
 .rr-map-region:focus-visible { fill: #92b184bb; stroke: #173c25; stroke-width: 2.5; outline: none; }
 .rr-map-instructions { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .rr-map-region-picker { margin: 16px 0 26px; }
 .rr-map-region-picker summary { width: fit-content; color: var(--green); font-size: 14px; font-weight: 700; cursor: pointer; }
 .rr-map-region-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
 .rr-map-region-option { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--green-dark); background: var(--paper); font: inherit; font-size: 12px; cursor: pointer; }
-.rr-map-region-option:hover, .rr-map-region-option:focus-visible, .rr-map-region-option.active { border-color: var(--green); background: var(--green-soft); outline-color: var(--green); }
+.rr-map-region-option:hover, .rr-map-region-option:focus-visible { border-color: var(--green); background: var(--green-soft); outline-color: var(--green); }
+.rr-map-region-option.active { border-color: var(--green); background: var(--green-soft); }
 .rr-region-results { margin-top: 28px; }
 .rr-region-results > h3 { margin: 0 0 8px; color: var(--green-dark); font-family: 'Playfair Display', Georgia, serif; font-size: 27px; font-weight: 500; }
 .rr-region-result-context, .rr-region-result-count { color: var(--muted); font-size: 13px; line-height: 1.6; }
 .rr-region-remedy-list { display: grid; gap: 13px; margin-top: 18px; }
 .rr-region-remedy-card { padding: 19px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
-.rr-region-remedy-card > p { margin: 12px 0; color: #59665b; font-size: 14px; line-height: 1.7; }
+.rr-region-remedy-card > p { margin: 12px 0; color: #625f54; font-size: 14px; line-height: 1.7; }
 .rr-remedy-detail-button { min-height: 38px; padding: 0 14px; font-size: 12px; }
 .rr-map-story { margin-top: 18px; }
 .rr-map-story h3 { margin: 5px 0 10px; }
-.rr-map-story > p:not(.rr-tradition-kind) { color: #59665b; font-size: 14px; line-height: 1.7; }
+.rr-map-story > p:not(.rr-tradition-kind) { color: #625f54; font-size: 14px; line-height: 1.7; }
 .rr-map-story .rr-tradition-story-heading { align-items: center; }
 .rr-map-hint { color: var(--muted); font-size: 13px; }
 .rr-map-unavailable h3 { margin: 0 0 8px; }

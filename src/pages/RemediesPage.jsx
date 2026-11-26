@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import HealthGoalCard from '../components/HealthGoalCard.jsx';
 import RemedyCard from '../components/RemedyCard.jsx';
 import { fetchRemedyCatalog, findRemediesForGoal, searchCatalog } from '../data/remedyService.js';
@@ -8,8 +8,14 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null, ac
   const [catalog, setCatalog] = useState(null);
   const [attempt, setAttempt] = useState(0);
   const [error, setError] = useState('');
-  const [query, setQuery] = useState('');
-  const [submitted, setSubmitted] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const submitted = (searchParams.get('q') || '').trim();
+  const [query, setQuery] = useState(submitted);
+
+  useEffect(() => {
+    setQuery(submitted);
+    if (submitted) onGoalChange(null);
+  }, [submitted, onGoalChange]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -37,7 +43,7 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null, ac
   function handleSubmit(event) {
     event.preventDefault();
     onGoalChange(null);
-    setSubmitted(query.trim());
+    setSearchParams(query.trim() ? { q: query.trim() } : {});
   }
 
   function compareProps(remedy) {
@@ -63,13 +69,13 @@ export default function RemediesPage({ selectedIds = [], addToCompare = null, ac
             onChange={(event) => setQuery(event.target.value)} placeholder="e.g., constipation" />
           <button className="button button-primary" type="submit">Search</button>
           {(submitted || activeGoalId) && <button className="button button-secondary" type="button"
-            onClick={() => { setQuery(''); setSubmitted(''); onGoalChange(null); }}>Clear</button>}
+            onClick={() => { setQuery(''); setSearchParams({}); onGoalChange(null); }}>Clear</button>}
         </div>
       </form>
 
       {chosenGoal ? (
         <section aria-labelledby="rr-selected-goal">
-          <button className="rr-back-link" type="button" onClick={() => { onGoalChange(null); setSubmitted(''); }}>← All health goals</button>
+          <button className="rr-back-link" type="button" onClick={() => { onGoalChange(null); setSearchParams({}); }}>← All health goals</button>
           <h2 id="rr-selected-goal">{chosenGoal.name}</h2>
           <p>{visibleRemedies.length} linked remedy option{visibleRemedies.length === 1 ? '' : 's'}</p>
           <div className="rr-remedy-grid">{visibleRemedies.map((remedy) =>

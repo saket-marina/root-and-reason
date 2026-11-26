@@ -5,11 +5,10 @@ import ComparePage from './pages/ComparePage.jsx';
 import TraditionsPage from './pages/TraditionsPage.jsx';
 import RemedyDetailPage from './pages/RemedyDetailPage.jsx';
 import RemedyShelfPage from './pages/RemedyShelfPage.jsx';
+import { getSavedComparisons, getSavedRemedies } from './data/shelfStorage.js';
 import './remedy-features.css';
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';
-const SAVED_REMEDIES_KEY = 'savedRemedies';
-const SAVED_COMPARISONS_KEY = 'savedComparisons';
 
 function SproutMark({ className = '' }) {
   return (
@@ -30,14 +29,7 @@ function BookmarkMark() {
 
 // A device-local count keeps the shelf useful without requiring an account.
 function readSavedCount() {
-  try {
-    return [SAVED_REMEDIES_KEY, SAVED_COMPARISONS_KEY].reduce((sum, key) => {
-      const value = JSON.parse(localStorage.getItem(key) || '[]');
-      return sum + (Array.isArray(value) ? value.length : value && typeof value === 'object' ? Object.keys(value).length : 0);
-    }, 0);
-  } catch {
-    return 0;
-  }
+  return getSavedRemedies().length + getSavedComparisons().length;
 }
 
 function Navigation() {
@@ -182,11 +174,12 @@ function PlaceholderPage({ title, children }) {
 
 function ErrorPage() {
   const [query, setQuery] = useState('');
-  const [submittedQuery, setSubmittedQuery] = useState('');
+  const navigate = useNavigate();
 
   function handleSearch(event) {
     event.preventDefault();
-    setSubmittedQuery(query.trim());
+    const search = new URLSearchParams({ q: query.trim() });
+    navigate(query.trim() ? `/remedies?${search}` : '/remedies');
   }
 
   return (
@@ -200,7 +193,6 @@ function ErrorPage() {
           <input id="error-search-input" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try a remedy or health goal" />
           <button className="button button-primary" type="submit">Search</button>
         </div>
-        {submittedQuery && <p className="search-feedback">No remedy found for “{submittedQuery}”.</p>}
       </form>
       <div className="error-actions">
         <Link className="button button-primary" to="/remedies">Browse all remedies</Link>

@@ -116,8 +116,7 @@ function CitationLinks({ sourceIds }) {
 }
 
 function remedyDetailPath(remedy) {
-  // TODO(Milestone 4): connect this placeholder to the Remedy Detail route.
-  return `/remedies/${encodeURIComponent(remedy.slug || remedy.id)}`;
+  return `/remedies/${encodeURIComponent(remedy.id)}`;
 }
 
 function TraditionDetails({ tradition, onBack, onOpenMap }) {

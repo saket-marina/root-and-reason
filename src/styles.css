@@ -8,6 +8,7 @@
   --green: #4b6247;
   --green-dark: #354638;
   --green-soft: #edf0e5;
+  --yellow-soft: #f4eed8;
   --yellow-ink: #735b18;
   --ink: #2f3931;
   --muted: #67685f;
@@ -39,16 +40,16 @@ a { color: inherit; }
 .count-badge { display: inline-flex; min-width: 20px; height: 20px; align-items: center; justify-content: center; border-radius: 99px; color: white; background: var(--green); font-size: 11px; }
 
 .page-main { width: min(1160px, 100%); margin: 0 auto; padding: 0 32px; flex: 1; }
-.home-page { padding-top: 52px; padding-bottom: 70px; }
-.hero { min-height: 560px; display: flex; align-items: center; justify-content: center; padding: 42px 5.5%; border-radius: 28px; background: #edf0e8; overflow: hidden; }
+.home-page { padding-top: 52px; padding-bottom: 70px; color: #25372d; --green: #355d43; --green-dark: #264331; --green-soft: #e8eee4; }
+.hero { min-height: 560px; display: flex; align-items: center; justify-content: center; padding: 42px 5.5%; border-radius: 28px; background: linear-gradient(115deg, #eceee2 0%, #eceee2 76%, var(--yellow-soft) 100%); overflow: hidden; }
 .hero-copy { max-width: 700px; padding: 14px 0; text-align: center; }
 .home-logo { display: block; width: 132px; height: 132px; margin: 0 auto 12px; object-fit: contain; mix-blend-mode: multiply; }
 .eyebrow { margin: 0 0 15px; color: #586a46; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 h1, h2, p { margin-top: 0; }
 .hero h1, .subpage h1 { margin: 0; color: var(--green-dark); font-family: 'Playfair Display', Georgia, serif; font-weight: 500; letter-spacing: -.035em; }
 .hero h1 { font-size: clamp(48px, 6vw, 76px); line-height: 1.05; }
-.hero h1 em { color: #627752; font-weight: 500; }
-.hero-summary { max-width: 570px; margin: 24px auto 25px; color: #575f50; font-size: 17px; line-height: 1.75; }
+.home-page .hero h1 em { color: #728758; font-weight: 500; }
+.home-page .hero-summary { max-width: 570px; margin: 24px auto 25px; color: #506052; font-size: 17px; line-height: 1.75; }
 .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 0 20px; border: 1px solid transparent; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; transition: background .16s ease, transform .16s ease, opacity .16s ease; }
 .button:hover:not(:disabled) { transform: translateY(-1px); }
 .button-primary { color: var(--paper); background: var(--green); }
@@ -58,8 +59,8 @@ h1, h2, p { margin-top: 0; }
 .start-button { min-width: 150px; }
 .hero-note { margin: 17px 0 0; color: #5e6257; font-size: 12px; }
 .mission-strip { display: flex; align-items: center; gap: 18px; max-width: 900px; margin: 35px auto 0; padding: 20px 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.mission-spark { width: 23px; height: 23px; color: #71815c; }
-.mission-strip p { margin: 0; color: #5b5f53; font-size: 14px; line-height: 1.7; }
+.home-page .mission-spark { width: 23px; height: 23px; color: #819563; }
+.home-page .mission-strip p { margin: 0; color: #566459; font-size: 14px; line-height: 1.7; }
 
 .subpage { padding-top: 76px; padding-bottom: 100px; }
 .subpage h1 { max-width: 760px; font-size: clamp(42px, 6vw, 62px); line-height: 1.12; }

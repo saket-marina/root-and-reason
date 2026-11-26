@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import RemediesPage from './pages/RemediesPage.jsx';
 import ComparePage from './pages/ComparePage.jsx';
+import TraditionsPage from './pages/TraditionsPage.jsx';
 import RemedyDetailPage from './pages/RemedyDetailPage.jsx';
 import RemedyShelfPage from './pages/RemedyShelfPage.jsx';
-import TraditionsPage from './pages/TraditionsPage.jsx';
 import './remedy-features.css';
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';

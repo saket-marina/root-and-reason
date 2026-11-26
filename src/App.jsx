@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import RemediesPage from './pages/RemediesPage.jsx';
 import ComparePage from './pages/ComparePage.jsx';
 import TraditionsPage from './pages/TraditionsPage.jsx';
+import RemedyDetailPage from './pages/RemedyDetailPage.jsx';
+import RemedyShelfPage from './pages/RemedyShelfPage.jsx';
 import './remedy-features.css';
 
 const DISCLAIMER_KEY = 'rr-disclaimer-accepted';
@@ -210,6 +212,7 @@ function ErrorPage() {
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedIds, setSelectedIds] = useState([]);
   const [activeGoalId, setActiveGoalId] = useState(null);
 
@@ -221,6 +224,11 @@ function App() {
 
       return [...current, id];
     });
+  }
+
+  function openSavedComparison(comparison) {
+    setSelectedIds(comparison.remedyIds);
+    setActiveGoalId(comparison.goalId);
   }
 
   function removeFromCompare(id) {
@@ -239,9 +247,22 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/remedies" element={<RemediesPage selectedIds={selectedIds} addToCompare={addToCompare} activeGoalId={activeGoalId} onGoalChange={setActiveGoalId} />} />
+        <Route path="/remedies/:remedyId" element={<RemedyDetailPage />} />
         <Route path="/compare" element={<ComparePage selectedIds={selectedIds} onRemove={removeFromCompare} />} />
         <Route path="/traditions" element={<TraditionsPage />} />
-        <Route path="/shelf" element={<PlaceholderPage title="Remedy Shelf" />} />
+        <Route
+          path="/shelf"
+          element={
+            <RemedyShelfPage
+              openComparison={(comparison) => {
+                openSavedComparison(comparison);
+                navigate('/compare', {
+                  state: { savedComparison: comparison }
+                });
+              }}
+            />
+          }
+        />
         {/* Stale or mistyped links should still offer a way back into the site. */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
